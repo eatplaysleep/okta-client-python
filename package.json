@@ -1,0 +1,8 @@
+{
+  "name": "okta-client-python-codegen",
+  "private": true,
+  "description": "Pinned local Fern tooling for the Python management SDK",
+  "devDependencies": {
+    "fern-api": "5.147.8"
+  }
+}

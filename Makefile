@@ -1,4 +1,6 @@
 PYTHON ?= python
+SPEC ?= fern/openapi/management.json
+GENERATOR_RUNTIME ?= native
 TEST_RESULTS_DIR ?= test-results
 JUNIT_XML ?=
 ifneq ($(strip $(JUNIT_XML)),)
@@ -7,7 +9,13 @@ else
 JUNIT_FLAG :=
 endif
 
-.PHONY: test test-cov integration lint lint-fix build deps clean publish-test publish check-dist
+.PHONY: test test-cov integration lint lint-fix build deps clean publish-test publish check-dist generate-management check-management
+
+generate-management:
+	$(PYTHON) -m scripts.generate_management --spec "$(SPEC)" --runtime "$(GENERATOR_RUNTIME)"
+
+check-management:
+	$(PYTHON) -m scripts.generate_management --spec "$(SPEC)" --runtime "$(GENERATOR_RUNTIME)" --check
 
 test:
 	$(PYTHON) -m pytest tests -m "not integration" $(JUNIT_FLAG)

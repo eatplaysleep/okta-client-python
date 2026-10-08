@@ -1,0 +1,36 @@
+api:
+  specs:
+    - openapi: ./openapi/management.json
+      settings:
+        resolve-schema-collisions: true
+        disambiguate-request-names: true
+
+default-group: management
+groups:
+  management:
+    generators:
+      - name: fernapi/fern-python-sdk
+        version: 5.26.0
+        smart-casing: true
+        disable-examples: true
+        output:
+          location: local-file-system
+          path: ../src/okta_client/management/generated
+        config:
+          package_name: okta_client.management.generated
+          output_directory: source-root
+          client:
+            filename: client.py
+            class_name: OktaManagementClient
+            exported_filename: client.py
+            exported_class_name: OktaManagementClient
+          environment_class_name: OktaManagementEnvironment
+          improved_imports: true
+          lazy_imports: true
+          encode_path_params: true
+          omit_fern_headers: true
+          pydantic_config:
+            version: v2
+            extra_fields: allow
+            frozen: false
+            use_pydantic_field_aliases: true
