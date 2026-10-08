@@ -41,3 +41,10 @@ htmlcov/
 .DS_Store
 .*.sw*
 .sw*
+
+# Local Fern tooling and generation working files
+node_modules/
+.fern/
+fern/.cache/
+fern/.definition/
+.codegen/

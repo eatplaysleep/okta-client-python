@@ -1,0 +1,14 @@
+# Custom authentication SDK and management facade are never generated.
+src/okta_client/authfoundation/
+src/okta_client/oauth2auth/
+src/okta_client/browser_signin/
+src/okta_client/directauth/
+src/okta_client/__init__.py
+src/okta_client/py.typed
+src/okta_client/management/__init__.py
+src/okta_client/management/client.py
+tests/
+docs/
+README.md
+pyproject.toml
+Makefile

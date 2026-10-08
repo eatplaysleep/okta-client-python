@@ -15,6 +15,19 @@ The Okta Client SDK represents a collection of SDKs for different languages, eac
 
 This SDK emphasizes security, developer experience, and customization of the SDK's core capabilities. It is built as a platform, enabling you to choose the individual library components you need for your application.
 
+## Choose your API
+
+- **Manage your Okta organization:** the additive, Fern-generated Management
+  API SDK provides synchronous and asynchronous clients and typed models.
+  Install `pip install "okta-client-python[management]"` and follow the
+  [Management API developer guide](docs/management/README.md).
+- **Sign users in and manage OAuth tokens:** use the existing authentication
+  SDK described below. Its imports, flows, configuration, and dependencies
+  remain unchanged.
+- **Contribute or update API coverage:** see the
+  [SDK contributor guide](docs/contributing/README.md) for architecture,
+  specification replacement, reproducible generation, and testing.
+
 **Table of Contents**
 
 <!-- TOC depthFrom:2 depthTo:3 -->
@@ -35,6 +48,9 @@ The latest release can always be found on the [releases page][github-releases].
 The SDK requires **Python 3.10+** or higher, and has the following runtime dependency:
 
 * [PyJWT](https://pyjwt.readthedocs.io/)
+
+The optional `management` extra additionally installs HTTPX, Pydantic v2, and
+typing-extensions. SDK consumers do not need Fern, Node.js, or a generator runtime.
 
 ## Need help?
 
@@ -95,6 +111,7 @@ This SDK consists of several different libraries/packages, each with detailed do
 
 * `okta_client.authfoundation` -- Common classes for managing tokens, validation and security, network handling, and common type definitions. Used as a foundation for all other libraries.
 * `okta_client.oauth2auth` -- OAuth2 authentication capabilities for advanced use-cases.
+* `okta_client.management` -- Generated Okta Management API clients and models. Requires the optional `management` extra; independent of the authentication APIs.
 * `okta_client.oktadirectauth` -- Authenticate using Okta's DirectAuth APIs. _(Coming Soon)_
 
 This SDK enables you to build or support a myriad of different authentication flows and approaches.
