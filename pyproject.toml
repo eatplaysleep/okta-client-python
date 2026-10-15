@@ -30,14 +30,35 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-test = ["pytest>=7,<9"]
+test = [
+    "pytest>=7,<9",
+    "PyYAML==6.0.3",
+    "httpx>=0.28,<1",
+    "pydantic>=2.11,<3",
+    "typing_extensions>=4.12,<5",
+]
+management = [
+    "httpx>=0.28,<1",
+    "pydantic>=2.11,<3",
+    "typing_extensions>=4.12,<5",
+]
+codegen = [
+    "PyYAML==6.0.3",
+    "httpx>=0.28,<1",
+    "pydantic>=2.11,<3",
+    "typing_extensions>=4.12,<5",
+]
 dev = [
     "pytest>=7,<9",
     "pytest-cov>=4,<6",
     "ruff>=0.4,<1",
     "build>=1,<2",
     "selenium>=4,<5",
-    "twine>=5,<6",
+    "twine>=6,<7",
+    "PyYAML==6.0.3",
+    "httpx>=0.28,<1",
+    "pydantic>=2.11,<3",
+    "typing_extensions>=4.12,<5",
 ]
 
 [project.urls]
@@ -52,12 +73,14 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 okta_client = ["py.typed"]
+"okta_client.management.generated" = ["_generation.json"]
 
 # ---------- Ruff ----------
 [tool.ruff]
 target-version = "py310"
 line-length = 127
 src = ["src", "tests", "samples"]
+extend-exclude = ["src/okta_client/management/generated"]
 
 [tool.ruff.lint]
 select = [
@@ -90,6 +113,7 @@ addopts = "--strict-markers"
 [tool.coverage.run]
 source = ["okta_client"]
 branch = true
+omit = ["*/okta_client/management/generated/*"]
 
 [tool.coverage.report]
 show_missing = true

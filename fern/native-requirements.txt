@@ -1,0 +1,5 @@
+# Native adapter/tooling only. Generator dependencies are installed with Poetry
+# from the unmodified poetry.lock at the pinned public source commit.
+poetry==2.4.1
+ruff==0.15.7
+PyYAML==6.0.3

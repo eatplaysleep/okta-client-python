@@ -15,6 +15,8 @@ _Lets get started!!!_
 Development Setup
 -----------------
 
+For repository architecture, local setup, testing, and management SDK regeneration, see the [developer contributor guide](../docs/contributing/README.md). The CLA and contribution policies in this document still apply.
+
 After cloning the repository, install all dependencies (including dev tools) with:
 
 ``` bash
